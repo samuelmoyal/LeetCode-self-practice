@@ -32,10 +32,6 @@ public:
                         if (j-1>=0 && grid[i][j-1]=='1' && seen[(i)*grid[0].size()+j-1]==0){
                             to_visit.push_back(pair <int,int> {i,j-1});
                         }
-                    for (auto [x, y] : to_visit) {
-                        std::cout << "(" << x << "," << y << ") ";
-                    }
-                    std::cout << "\n";
                     };
                     count+=1; 
                 };
