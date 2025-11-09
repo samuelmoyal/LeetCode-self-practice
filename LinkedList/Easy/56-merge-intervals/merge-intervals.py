@@ -4,9 +4,7 @@ class Solution:
             intervals_sorted=sorted(intervals)
             out=[]
             prep=intervals_sorted[0]
-            print(intervals_sorted)
             for i in range (len(intervals_sorted)-1):
-                print(prep)
                 if intervals_sorted[i+1][0]<=prep[1]:
                     prep=[prep[0],max(intervals_sorted[i+1][1],prep[1])]
                 else:
