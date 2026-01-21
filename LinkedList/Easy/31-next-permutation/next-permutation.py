@@ -1,7 +1,6 @@
 class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         if len(nums)>1:
-
             i=len(nums)-1
             last_digit=[nums[i]]
             while i>0 and nums[i-1]>=nums[i]:
