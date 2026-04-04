@@ -7,7 +7,7 @@ class Solution(object):
         if n>1:
             out=set()
             for el in self.generateParenthesis(n-1):
-                out.add("()"+el)
+                #out.add("()"+el)
                 out.add("("+el+")")
                 out.add(el+"()")
                 right=0
