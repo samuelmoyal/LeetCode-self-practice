@@ -24,13 +24,13 @@ class Solution(object):
                     for j in range(i,len(idx)):
                         out.add(el[:idx[i]]+"("+el[idx[i]:idx[j]]+")"+el[idx[j]:])
                 
-                to_del=set()
+                #to_del=set()
                 
-                for el in out:
-                    if len(el)!=2*n:
-                        to_del.add(el)
-                for el in to_del:
-                    out.discard(el)
+                #for el in out:
+                #    if len(el)!=2*n:
+                #        to_del.add(el)
+                #for el in to_del:
+                #    out.discard(el)
 
 
 
