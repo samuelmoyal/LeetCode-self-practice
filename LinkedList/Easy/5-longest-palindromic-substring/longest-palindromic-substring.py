@@ -5,11 +5,9 @@ class Solution(object):
         out=s[0]
         M=1
         for idx in range(len(s)):
-            print("idx",idx)
             if idx==0:
                 if s[idx+1]==s[idx] and M<2:
                     out=s[0:2]
-                    #print(out)
                     M=2
             if 1<=idx and idx<len(s)-1:
                 m=1
@@ -19,11 +17,8 @@ class Solution(object):
                     m+=2
                     i=i-1
                     j=j+1
-                print("m",m)
                 if m>M:
-                    print("new")
                     out=s[i+1:j]
-                    print(out)
                     M=m
                 i=idx
                 j=idx+1
@@ -32,7 +27,6 @@ class Solution(object):
                     m+=2
                     i=i-1
                     j=j+1
-                print(m)
                 if m>M:
                     out=s[i+1:j]
                     M=m
