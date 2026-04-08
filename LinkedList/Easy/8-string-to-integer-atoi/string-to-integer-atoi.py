@@ -1,63 +1,33 @@
 class Solution(object):
     def myAtoi(self, s):
-        out=[]
-        i=0
-        while i<len(s) and s[i]==" ":
-            i+=1
-        print(out)
-        if i<len(s) and (s[i]=="-" or s[i]=="+"):
-            start=i
-            i+=1
-            #while i<len(s) and (s[i]==0 or not s[i].isdigit()):
-            #    i+=1
-            print(out)
-            while i<len(s) and s[i].isdigit():
-                out.append(s[i])
-                i+=1
-            print(out)
-            out="".join(out)
-            print(out)
-            if len(out)>0:
-                if int(out)>2**31-1:
-                    if s[start]=="+":
-
-                        out=str(2**31-1)
-                    else:
-                        out=str(2**31)
-                
-                if s[start]=="+":
-                    out=int(out)
-                if s[start]=="-":
-                    print(out)
-                    out=-int(out)
-            else:
-                return 0
-
-            return out
-
-
-        elif  i<len(s) and s[i].isdigit():
-            print(out)
-
-            while i<len(s) and (s[i]==0 or not s[i].isdigit()):
-                i+=1
-            while i<len(s) and s[i].isdigit():
-                out.append(s[i])
-                i+=1
-            print(out)
-            out="".join(out)
-            print(out)
-            if len(out)>0:
-                if int(out)>=2**31-1:
-                    out=2**31-1
-                else:
-                    out=int(out)
-            else:
-                return 0
-            return out
-        else:
-            return 0
-
+        i = 0
+        n = len(s)
+        
+        # skip spaces
+        while i < n and s[i] == ' ':
+            i += 1
+        
+        # sign
+        sign = 1
+        if i < n and s[i] in '+-':
+            if s[i] == '-':
+                sign = -1
+            i += 1
+        
+        res = 0
+        
+        # parse digits
+        while i < n and s[i].isdigit():
+            d = int(s[i])
+            
+            # overflow check
+            if res > (2**31 - 1 - d) // 10:
+                return 2**31 - 1 if sign == 1 else -2**31
+            
+            res = res * 10 + d
+            i += 1
+        
+        return sign * res
 
 
 
